@@ -1,0 +1,20 @@
+@keyframes changeBackgroundColor 
+{
+    0% {
+        background-color: #ffffff; /* Белый */
+    }
+    50% {
+        background-color: #c4fac7; /* Полузеленый */
+    }
+    100% {
+        background-color: #73cf77; /* Светло-зеленый */
+    }
+}
+
+body 
+{
+    animation-name: changeBackgroundColor; /* Имя анимации */
+    animation-duration: 10s; /* Длительность одного цикла */
+    animation-iteration-count: infinite; /* Бесконечное повторение */
+    animation-timing-function: ease-in-out; /* Плавность анимации */
+}
