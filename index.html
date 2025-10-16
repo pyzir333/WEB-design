@@ -1,61 +1,778 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Крутые котики</title>
-    </head>
-    <body>
-        <h1>Обязанности по дому каждого cat</h1>
-            <li><u>Кот должен отсыпаться за человека, всех его родственников, друзей и соседей вместе взятых.</u></li>
-            <li>Кот должен защищать человека от комнатных растений</li>
-            <li>Кот постоянно должен поддерживать человека в форме, заставляя его непрестанно двигаться по квартире, нагибаться, собирая ручки, карандаши, носки и т. д.</li>
-            <li>Кот должен крепко держать зубами ручку или карандаш, пока человек
-пытается писать.</li>
-            <li><b>Кот постоянно должен проводить ревизию в холодильнике, даже если
-человек этого не хочет. Если он не хочет, значит, что-то там прячет, и с этим
-что-то следует хорошенько разобраться, а потом уж призвать к ответу самого
-человека</b></li>
-            <li>Кот должен ночью каждый час проверять, не заползла ли под одеяло
-человеку какая-нибудь змея.</li>
-            <li><i>Кот время от времени должен тренировать себя на случай непредвиденного
-циркового выступления. Для этого он должен периодически устраивать
-полеты под куполом дома, прыжки с гардины на люстру и обратно и другие
-всевозможные запрыгивания.</i></li>
-            <li>Кот должен помогать человеку стелить постель, внимательно наблюдая,
-чтобы под простыней не оказалось никаких предметов.</li>
-            <li>Кот должен помнить, что сон для человека – это пустая трата времени,
-поэтому, завидев спящего человека, необходимо тут же его разбудить,
-прыгнув ему на живот, а еще лучше на голову.</li>
-            <li><u>Кот должен каждое утро напоминать человеку старую пословицу: «Кто рано
-встает, тому Бог дает». И чем раньше встанет человек, тем больше ему (а
-заодно и коту) даст Бог</u></li>
-             <li>Кот должен делиться с человеком всем, что у него есть. Постоянно отдавать
-часть меха на утепление одежды и пола и выкидывать половину еды из
-чашки.
-</li>
-            <li><i>Кот должен петь песни, чтобы доставлять человеку радость. Даже если
-песни грустные.</i></li>
-            <li><b>Кот должен проверять, по какой причине кто-то не закрыл шкаф или
-тумбочку и не задвинул ящик.</b></li>
-            <li>Кот должен проверять, по какой причине кто-то не закрыл шкаф или
-тумбочку и не задвинул ящик.</li>
-            <li>Кот должен знать, что лежит во всех коробках и пакетах. И на личном опыте
-убедиться, насколько <i>там удобно и хорошо</i> находиться.</li>
-            <li>Кот должен во время сна человека заглушать наружный шум, громко урча
-под ухом. </li>
-        </ol>
-        <hr>
-        <ul>
-            <li>Кот должен отсыпаться за человека, всех его родственников, друзей и
-соседей вместе взятых.</li>
-            <li>Кот должен защищать человека от комнатных растений.</li>
-            <li><b>Кот постоянно должен поддерживать человека в форме, заставляя его
-непрестанно двигаться по квартире, нагибаться, собирая ручки, карандаши,
-носки и т. д.</b></li>
-        </ul>
-        <img src="Котики.jpg" alt="Коты смотрят свои обязанности" width="600" height="310">
-        <img src="Пацанский кот.jpg" alt="Кот недоволен своими обязанностми и записывает гневное видео" width="350" height="300">
-        <hr>
-        <a href="ind.html">GO NEXT</a>
-       
-    </body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторные работы по веб-дизайну</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A44C6;
+            --accent: #FF6584;
+            --dark-bg: #0F0F1E;
+            --dark-card: #1A1A2E;
+            --dark-text: #E2E2E2;
+            --darker: #0A0A14;
+            --success: #4BB543;
+            --warning: #FFCC00;
+            --danger: #DC3545;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark-bg) 100%);
+            color: var(--dark-text);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(255, 101, 132, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .student-info {
+            background: var(--dark-card);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .student-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .student-info h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+        }
+
+        .info-item i {
+            color: var(--primary);
+            font-size: 1.3rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .labs-section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .lab-card {
+            background: var(--dark-card);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .lab-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .lab-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .lab-card:hover .lab-icon {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .lab-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+
+        .lab-desc {
+            margin-bottom: 25px;
+            flex-grow: 1;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .lab-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .lab-link {
+            display: block;
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .lab-link:hover {
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+        }
+
+        .lab-link:hover::before {
+            left: 100%;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: var(--success);
+            color: white;
+        }
+
+        .status-in-progress {
+            background: var(--warning);
+            color: var(--darker);
+        }
+
+        .status-planned {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--dark-text);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 70px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .social-links a {
+            color: var(--dark-text);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-card);
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-container {
+            margin: 50px auto;
+            max-width: 800px;
+            background: var(--dark-card);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            width: 0%;
+            transition: width 1.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .labs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            gap: 20px;
+        }
+
+        .course-item {
+            text-align: center;
+            background: var(--dark-card);
+            padding: 25px 15px;
+            border-radius: 15px;
+            flex: 1;
+            min-width: 170px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .course-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .course-item:hover i {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .course-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .course-item p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <!-- Эти элементы создаются через JS -->
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <h1>Лабораторные работы по <span class="highlight">WEB-Дизайну</span></h1>
+            <p class="subtitle">Портал для доступа ко всем лабораторным работам курса WEB-дизайн</p>
+        </header>
+
+        <section class="student-info">
+            <h2><i class="fas fa-user-graduate"></i> Информация о студенте</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-user"></i>
+                    <div>
+                        <strong>ФИО:</strong> Кривецкий Егор Александрович
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-id-card"></i>
+                    <div>
+                        <strong>Группа:</strong> УИР-1
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-book"></i>
+                    <div>
+                        <strong>Курс:</strong> WEB-дизайн
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div>
+                        <strong>Преподаватель (Лекции):</strong> Шаститко Д. В.
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div>
+                        <strong>Преподаватель (Лабораторные):</strong> Виноградова И. В.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="course-info">
+            <div class="course-item">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Семестр</h3>
+                <p>5</p>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-tasks"></i>
+                <h3>Всего работ</h3>
+                <p>8</p>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-check-circle"></i>
+                <h3>Выполнено</h3>
+                <p>2</p>
+            </div>
+            <div class="course-item">
+                <i class="fas fa-clock"></i>
+                <h3>Осталось</h3>
+                <p>6</p>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-header">
+                <span>Общий прогресс по курсу</span>
+                <span>0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <section class="labs-section">
+            <h2 class="section-title">Лабораторные работы</h2>
+            
+            <div class="labs-grid">
+                <!-- Лабораторная работа 1 -->
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <h3 class="lab-title">ЛР №1: Основы HTML</h3>
+                    <p class="lab-desc">1. Создать HTML-документ, который будет представлять собой веб-страницу с
+                        заданной информацией (текст представлен ниже).</p>
+                    <div class="lab-meta">
+                        <span class="status status-completed">Сдана</span>
+                        <span>Срок: 27.09.2025</span>
+                    </div>
+                    <a href="laba_1/index.html" class="lab-link">Перейти к работе</a>
+                </div>
+
+                <!-- Лабораторная работа 2 -->
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="lab-title">ЛР №2-3: Верстка таблицами. Верстка DIV</h3>
+                    <p class="lab-desc">Создать таблицу для сравнения характеристик автомобилей Lamborghini, Voyah и Jaguar, используя теги HTML. Так же используйте основные теги HTML.</p>
+                    <div class="lab-meta">
+                        <span class="status status-completed">Завершено</span>
+                        <span>Срок: 24.10.2025</span>
+                    </div>
+                    <a href="laba_2/index.html" class="lab-link">Перейти к работе</a>
+                </div>
+
+                <!-- Лабораторная работа 3 -->
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <h3 class="lab-title">ЛР №4: Селекторы CSS</h3>
+                    <p class="lab-desc">Описание пока не заполнено.</p>
+                    <div class="lab-meta">
+                        <span class="status status-planned">Запланировано</span>
+                        <span>Срок: Не задан</span>
+                    </div>
+                    <a class="lab-link">Скоро доступно</a>
+                </div>
+
+                <!-- Лабораторная работа 4 -->
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="lab-title">ЛР №5: Верстка FlexBox</h3>
+                    <p class="lab-desc">Описание пока не заполнено.</p>
+                    <div class="lab-meta">
+                        <span class="status status-planned">Запланировано</span>
+                        <span>Срок: Не задан</span>
+                    </div>
+                    <a class="lab-link">Скоро доступно</a>
+                </div>
+
+                <!-- Лабораторная работа 5 -->
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="lab-title">ЛР №6: Верстка Grid</h3>
+                    <p class="lab-desc">Описание пока не заполнено.</p>
+                    <div class="lab-meta">
+                        <span class="status status-planned">Запланировано</span>
+                        <span>Срок: Не задан</span>
+                    </div>
+                    <a class="lab-link">Скоро доступно</a>
+                </div>
+
+                <!-- Лабораторная работа 6 -->
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="lab-title">ЛР №7: Простые скрипты</h3>
+                    <p class="lab-desc">Описание пока не заполнено.</p>
+                    <div class="lab-meta">
+                        <span class="status status-planned">Запланировано</span>
+                        <span>Срок: Не задан</span>
+                    </div>
+                    <a class="lab-link">Скоро доступно</a>
+                </div>
+
+                <!-- Лабораторная работа 7 -->
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="lab-title">ЛР №8: DOM</h3>
+                    <p class="lab-desc">Описание пока не заполнено.</p>
+                    <div class="lab-meta">
+                        <span class="status status-planned">Запланировано</span>
+                        <span>Срок: Не задан</span>
+                    </div>
+                    <a class="lab-link">Скоро доступно</a>
+                </div>
+
+                <!-- Лабораторная работа 8 -->
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3 class="lab-title">ЛР №9: Асинхронность в JS</h3>
+                    <p class="lab-desc">Описание пока не заполнено.</p>
+                    <div class="lab-meta">
+                        <span class="status status-planned">Запланировано</span>
+                        <span>Срок: Не задан</span>
+                    </div>
+                    <a class="lab-link">Скоро доступно</a>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://github.com/pyzir333"><i class="fab fa-github"></i></a>
+                <a href="https://t.me/xwberlr"><i class="fab fa-telegram"></i></a>
+                <a href="https://vk.com/xwberlr"><i class="fab fa-vk"></i></a>
+            </div>
+            <p>© 2025 Лабораторные работы по веб-дизайну. Приятного просмотра и хорошего настроения!</p>
+            <p>Создано для курса веб-дизайна</p>
+        </footer>
+    </div>
+
+    <script>
+        // Анимация прогресс-бара
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Автоматический расчет прогресса
+            function calculateProgress() {
+                // Считаем все карточки с лабораторными работами
+                const totalLabs = document.querySelectorAll('.lab-card').length;
+                
+                // Считаем завершенные работы (с классом status-completed)
+                const completedLabs = document.querySelectorAll('.status-completed').length;
+                
+                // Вычисляем процент
+                const progressPercent = Math.round((completedLabs / totalLabs) * 100);
+                
+                return progressPercent;
+            }
+
+            // Обновляем прогресс-бар
+            function updateProgressBar(percent) {
+                const progressFill = document.querySelector('.progress-fill');
+                const progressText = document.querySelector('.progress-header span:last-child');
+                
+                // Обновляем текст
+                progressText.textContent = percent + '%';
+                
+                // Запускаем анимацию
+                setTimeout(() => {
+                    progressFill.style.width = percent + '%';
+                }, 500);
+            }
+
+            // Запускаем расчет при загрузке страницы
+            const progress = calculateProgress();
+            updateProgressBar(progress);
+
+            // Выводим в консоль для проверки
+            console.log(`Автоматический расчет прогресса: ${progress}%`);
+
+            // Добавляем анимацию появления карточек
+            const cards = document.querySelectorAll('.lab-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+
+            // Создаем плавающие элементы для фона
+            const floatingContainer = document.querySelector('.floating-elements');
+            for (let i = 0; i < 15; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                
+                // Случайный размер
+                const size = Math.random() * 30 + 10;
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                
+                // Случайная позиция
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100}%`;
+                
+                // Случайная задержка анимации
+                element.style.animationDelay = `${Math.random() * 15}s`;
+                
+                // Случайный цвет
+                const colors = [
+                    'rgba(108, 99, 255, 0.1)',
+                    'rgba(255, 101, 132, 0.1)',
+                    'rgba(74, 68, 198, 0.1)'
+                ];
+                element.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                floatingContainer.appendChild(element);
+            }
+        });
+    </script>
+</body>
 </html>

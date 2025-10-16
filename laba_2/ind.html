@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Машинки Chevrolet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+        
+        nav {
+            background: #2c3e50;
+            border-radius: 10px;
+            margin: 20px 0;
+            padding: 15px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover {
+            background: #34495e;
+        }
+        
+        .car-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .car-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 20px;
+        }
+        
+        .car-title {
+            color: #2c3e50;
+            font-size: 2em;
+        }
+        
+        .car-price {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .car-image {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        figcaption {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .spec-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        th {
+            background: #34495e;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        aside {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        details {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        
+        summary {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .progress-container {
+            margin: 10px 0;
+        }
+        
+        progress {
+            width: 100%;
+            height: 20px;
+            border-radius: 10px;
+        }
+        
+        progress::-webkit-progress-bar {
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+        
+        progress::-webkit-progress-value {
+            background: #27ae60;
+            border-radius: 10px;
+        }
+        
+        blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .mini-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .mini-table div {
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            margin-top: 30px;
+        }
+        
+        .rating {
+            color: #f39c12;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Сравнение автомобилей Chevrolet</h1>
+            <p class="subtitle">Детальный анализ трех популярных моделей</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#tahoe">Chevrolet Tahoe</a></li>
+                <li><a href="#malibu">Chevrolet Malibu</a></li>
+                <li><a href="#equinox">Chevrolet Equinox</a></li>
+                <li><a href="#comparison">Сравнительная таблица</a></li>
+                <li><a href="index.html">Вернуться к общему заданию</a></li>
+            </ul>
+        </nav>
+
+        <!-- Chevrolet Tahoe -->
+        <section id="tahoe" class="car-section">
+            <div class="car-header">
+                <h2 class="car-title">Chevrolet Tahoe</h2>
+                <span class="car-price">от 180 000 BYN</span>
+            </div>
+            
+            <figure>
+                <img src="ТАХО.jpg" alt="Chevrolet Tahoe" class="car-image">
+                <figcaption>Chevrolet Tahoe 2024 - полноразмерный SUV</figcaption>
+            </figure>
+
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <strong>Тип двигателя:</strong> Бензиновый
+                </div>
+                <div class="spec-card">
+                    <strong>Расход топлива:</strong> 13.8 л/100км
+                </div>
+                <div class="spec-card">
+                    <strong>Коробка передач:</strong> Автоматическая (10-ступенчатая)
+                </div>
+                <div class="spec-card">
+                    <strong>Габариты:</strong> 5350 × 2060 × 1920 мм
+                </div>
+            </div>
+
+            <aside>
+                <h3>Интересный факт</h3>
+                <p>Tahoe является одним из самых популярных полноразмерных SUV в Северной Америке и часто используется в качестве полицейского автомобиля.</p>
+            </aside>
+
+            <details>
+                <summary>Системы безопасности</summary>
+                <div class="mini-table">
+                    <div>ABS: <span class="rating">Есть</span></div>
+                    <div>ESP: <span class="rating">Есть</span></div>
+                    <div>Подушки безопасности: 8</div>
+                    <div>Система предотвращения столкновений: <span class="rating">Есть</span></div>
+                </div>
+            </details>
+
+            <details>
+                <summary>Дополнительные характеристики</summary>
+                <div class="progress-container">
+                    <label>Рейтинг безопасности Euro NCAP:</label>
+                    <progress value="85" max="100">85%</progress>
+                </div>
+                <p><strong>Объем багажника:</strong> 722 литра</p>
+                <p><strong>Тормозная система:</strong> Дисковые вентилируемые</p>
+                <p><strong>Wi-Fi и Bluetooth:</strong> <span class="rating">Есть</span></p>
+            </details>
+
+            <blockquote>
+                "Tahoe поражает своим просторным салоном и мощным двигателем. Идеальный выбор для большой семьи."
+                <cite>- Автообозреватель</cite>
+            </blockquote>
+
+            <p><time datetime="2024-01-15">Дата выпуска модели: 15 января 2024</time></p>
+        </section>
+
+        <!-- Chevrolet Malibu -->
+        <section id="malibu" class="car-section">
+            <div class="car-header">
+                <h2 class="car-title">Chevrolet Malibu</h2>
+                <span class="car-price">от 78 000 BYN</span>
+            </div>
+            
+            <figure>
+                <img src="Малибу.png" alt="Chevrolet Malibu" class="car-image">
+                <figcaption>Chevrolet Malibu 2024 - бизнес-седан</figcaption>
+            </figure>
+
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <strong>Тип двигателя:</strong> Бензиновый
+                </div>
+                <div class="spec-card">
+                    <strong>Расход топлива:</strong> 7.2 л/100км
+                </div>
+                <div class="spec-card">
+                    <strong>Коробка передач:</strong> Автоматическая (CVT)
+                </div>
+                <div class="spec-card">
+                    <strong>Габариты:</strong> 4930 × 1850 × 1460 мм
+                </div>
+            </div>
+
+            <aside>
+                <h3>Интересный факт</h3>
+                <p>Название Malibu происходит от известного пляжа в Калифорнии, что отражает спортивный и стильный характер автомобиля.</p>
+            </aside>
+
+            <details>
+                <summary>Системы безопасности</summary>
+                <div class="mini-table">
+                    <div>ABS: <span class="rating">Есть</span></div>
+                    <div>ESP: <span class="rating">Есть</span></div>
+                    <div>Подушки безопасности: 6</div>
+                    <div>Система предотвращения столкновений: <span class="rating">Есть</span></div>
+                </div>
+            </details>
+
+            <details>
+                <summary>Дополнительные характеристики</summary>
+                <div class="progress-container">
+                    <label>Рейтинг безопасности Euro NCAP:</label>
+                    <progress value="88" max="100">88%</progress>
+                </div>
+                <p><strong>Объем багажника:</strong> 447 литров</p>
+                <p><strong>Тормозная система:</strong> Дисковые</p>
+                <p><strong>Wi-Fi и Bluetooth:</strong> <span class="rating">Есть</span></p>
+            </details>
+
+            <blockquote>
+                "Malibu сочетает в себе комфорт, экономичность и современные технологии по доступной цене."
+                <cite>- Владелец автомобиля</cite>
+            </blockquote>
+
+            <p><time datetime="2024-03-01">Дата выпуска модели: 1 марта 2024</time></p>
+        </section>
+
+        <!-- Chevrolet Equinox -->
+        <section id="equinox" class="car-section">
+            <div class="car-header">
+                <h2 class="car-title">Chevrolet Equinox</h2>
+                <span class="car-price">от 91 000 BYN</span>
+            </div>
+            
+            <figure>
+                <img src="еквинокс.png" alt="Chevrolet Equinox" class="car-image">
+                <figcaption>Chevrolet Equinox 2024 - компактный кроссовер</figcaption>
+            </figure>
+
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <strong>Тип двигателя:</strong> Бензиновый турбо
+                </div>
+                <div class="spec-card">
+                    <strong>Расход топлива:</strong> 8.1 л/100км
+                </div>
+                <div class="spec-card">
+                    <strong>Коробка передач:</strong> Автоматическая (6-ступенчатая)
+                </div>
+                <div class="spec-card">
+                    <strong>Габариты:</strong> 4650 × 1880 × 1690 мм
+                </div>
+            </div>
+
+            <aside>
+                <h3>Интересный факт</h3>
+                <p>Equinox предлагает гибридную версию, что делает его одним из самых экологичных SUV в линейке Chevrolet.</p>
+            </aside>
+
+            <details>
+                <summary>Системы безопасности</summary>
+                <div class="mini-table">
+                    <div>ABS: <span class="rating">Есть</span></div>
+                    <div>ESP: <span class="rating">Есть</span></div>
+                    <div>Подушки безопасности: 7</div>
+                    <div>Система предотвращения столкновений: <span class="rating">Есть</span></div>
+                </div>
+            </details>
+
+            <details>
+                <summary>Дополнительные характеристики</summary>
+                <div class="progress-container">
+                    <label>Рейтинг безопасности Euro NCAP:</label>
+                    <progress value="86" max="100">86%</progress>
+                </div>
+                <p><strong>Объем багажника:</strong> 846 литров</p>
+                <p><strong>Тормозная система:</strong> Дисковые</p>
+                <p><strong>Wi-Fi и Bluetooth:</strong> <span class="rating">Есть</span></p>
+            </details>
+
+            <blockquote>
+                "Equinox - идеальный баланс между компактными размерами и практичностью. Отличный городской SUV."
+                <cite>- Автомобильный эксперт</cite>
+            </blockquote>
+
+            <p><time datetime="2024-02-10">Дата выпуска модели: 10 февраля 2024</time></p>
+        </section>
+
+        <!-- Сравнительная таблица -->
+        <section id="comparison" class="car-section">
+            <h2 style="text-align: center; margin-bottom: 30px;">Сравнительная таблица характеристик</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Характеристика</th>
+                        <th>Chevrolet Tahoe</th>
+                        <th>Chevrolet Malibu</th>
+                        <th>Chevrolet Equinox</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Тип двигателя</td>
+                        <td>Бензиновый V8</td>
+                        <td>Бензиновый L4</td>
+                        <td>Бензиновый турбо L4</td>
+                    </tr>
+                    <tr>
+                        <td>Расход топлива (л/100км)</td>
+                        <td>13.8</td>
+                        <td>7.2</td>
+                        <td>8.1</td>
+                    </tr>
+                    <tr>
+                        <td>Тип КПП</td>
+                        <td>Автоматическая (10-ступ)</td>
+                        <td>Вариатор (CVT)</td>
+                        <td>Автоматическая (6-ступ)</td>
+                    </tr>
+                    <tr>
+                        <td>Количество передач</td>
+                        <td>10</td>
+                        <td>Бесступенчатая</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>Длина × Ширина × Высота (мм)</td>
+                        <td>5350 × 2060 × 1920</td>
+                        <td>4930 × 1850 × 1460</td>
+                        <td>4650 × 1880 × 1690</td>
+                    </tr>
+                    <tr>
+                        <td>Объем багажника (л)</td>
+                        <td>722</td>
+                        <td>447</td>
+                        <td>846</td>
+                    </tr>
+                    <tr>
+                        <td>Подушки безопасности</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>Рейтинг Euro NCAP</td>
+                        <td>85%</td>
+                        <td>88%</td>
+                        <td>86%</td>
+                    </tr>
+                    <tr>
+                        <td>Разгон 0-100 км/ч (с)</td>
+                        <td>6.1</td>
+                        <td>8.5</td>
+                        <td>7.8</td>
+                    </tr>
+                    <tr>
+                        <td>Максимальная скорость (км/ч)</td>
+                        <td>210</td>
+                        <td>225</td>
+                        <td>195</td>
+                    </tr>
+                    <tr>
+                        <td>Начальная цена (₽)</td>
+                        <td>4 200 000</td>
+                        <td>1 800 000</td>
+                        <td>2 100 000</td>
+                    </tr>
+                    <tr>
+                        <td>Wi-Fi и Bluetooth</td>
+                        <td>Есть</td>
+                        <td>Есть</td>
+                        <td>Есть</td>
+                    </tr>
+                    <tr>
+                        <td>Тормозная система</td>
+                        <td>Дисковые вентилируемые</td>
+                        <td>Дисковые</td>
+                        <td>Дисковые</td>
+                    </tr>
+                    <tr>
+                        <td>Система предотвращения столкновений</td>
+                        <td>Есть</td>
+                        <td>Есть</td>
+                        <td>Есть</td>
+                    </tr>
+                    <tr>
+                        <td>Гарантийный срок</td>
+                        <td>3 года / 100 000 км</td>
+                        <td>5 лет / 160 000 км</td>
+                        <td>3 года / 100 000 км</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>
